@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.miprimermod.client.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"MiPrimerModClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
