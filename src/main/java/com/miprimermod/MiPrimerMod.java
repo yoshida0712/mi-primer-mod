@@ -1,28 +1,34 @@
 package com.miprimermod;
 
-import net.fabricmc.api.ModInitializer;
+import org.slf4j.Logger;
+
+import com.mojang.logging.LogUtils;
 
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// El valor debe coincidir con el modId de META-INF/neoforge.mods.toml
+@Mod(MiPrimerMod.MOD_ID)
+public class MiPrimerMod {
+    public static final String MOD_ID = "miprimermod";
 
-public class MiPrimerMod implements ModInitializer {
-	public static final String MOD_ID = "miprimermod";
+    // Logger para escribir en la consola y en el archivo de log.
+    public static final Logger LOGGER = LogUtils.getLogger();
 
-	// Logger para escribir en la consola y en el archivo de log.
-	// Usar el mod id como nombre deja claro qué mod escribió cada mensaje.
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    // El constructor es lo primero que se ejecuta al cargar el mod.
+    // NeoForge pasa automáticamente el bus de eventos del mod y su contenedor.
+    public MiPrimerMod(IEventBus modEventBus, ModContainer modContainer) {
+        modEventBus.addListener(this::commonSetup);
+    }
 
-	@Override
-	public void onInitialize() {
-		// Este código se ejecuta en cuanto Minecraft está listo para cargar mods.
-		// Algunas cosas (como los recursos) aún pueden no estar inicializadas.
+    private void commonSetup(FMLCommonSetupEvent event) {
+        LOGGER.info("¡Hola desde Mi Primer Mod!");
+    }
 
-		LOGGER.info("¡Hola desde Mi Primer Mod!");
-	}
-
-	public static ResourceLocation id(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-	}
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    }
 }

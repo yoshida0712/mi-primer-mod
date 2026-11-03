@@ -1,6 +1,6 @@
 # Mi Primer Mod
 
-Mod de Minecraft **1.21.1** hecho con [Fabric](https://fabricmc.net/).
+Mod de Minecraft **1.21.1** hecho con [NeoForge](https://neoforged.net/).
 
 ## Requisitos
 
@@ -19,15 +19,15 @@ En Windows usa `gradlew.bat` en lugar de `./gradlew`.
 
 ## Estructura
 
-- `src/main/java` – código común (cliente y servidor). Entrada: `com.miprimermod.MiPrimerMod`
-- `src/client/java` – código solo del cliente. Entrada: `com.miprimermod.client.MiPrimerModClient`
-- `src/main/resources/fabric.mod.json` – metadatos del mod
+- `src/main/java/com/miprimermod/MiPrimerMod.java` – clase principal (cliente y servidor)
+- `src/main/java/com/miprimermod/MiPrimerModClient.java` – código solo del cliente
+- `src/main/templates/META-INF/neoforge.mods.toml` – metadatos del mod (los valores vienen de `gradle.properties`)
 - `src/main/resources/assets/miprimermod` – texturas, modelos, idiomas, etc.
 
 ## Documentación
 
-- [Documentación de Fabric](https://docs.fabricmc.net/develop/)
+- [Documentación de NeoForge](https://docs.neoforged.net/)
 
 ## Licencia
 
-Basado en la plantilla oficial [fabric-example-mod](https://github.com/FabricMC/fabric-example-mod) (CC0).
+Basado en el [MDK oficial de NeoForge 1.21.1](https://github.com/NeoForgeMDKs/MDK-1.21.1-ModDevGradle).
